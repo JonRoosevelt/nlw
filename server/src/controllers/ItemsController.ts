@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import knex from '../database/connection'
+import {API_URL} from '../utils/config';
 
 class ItemsController {
     async index(request: Request, response: Response) {
@@ -9,7 +10,7 @@ class ItemsController {
             return {
                 id: item.id,
                 name: item.title,
-                image_url: `http://localhost:3333/uploads/${item.image}`,
+                image_url: `${API_URL}/uploads/${item.image}`,
             };
         });
 
